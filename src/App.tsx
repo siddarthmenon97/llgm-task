@@ -1,6 +1,7 @@
-import { createTheme, ThemeProvider } from '@mui/material'
+import { Box, createTheme, SxProps, Theme, ThemeProvider } from '@mui/material'
 import { NumberInputComponent, SliderComponent } from './components/slider'
 import './App.css'
+// import { CommonSVGElements } from './components/d3-component'
 
 const theme = createTheme({
   palette: {
@@ -21,7 +22,7 @@ const theme = createTheme({
         },
       },
     },
-    MuiInputAdornment : {
+    MuiInputAdornment: {
       styleOverrides: {
         root: {
           color: '#949494'
@@ -52,17 +53,30 @@ const theme = createTheme({
   }
 })
 
+const boxWrapper1: SxProps<Theme> = {
+  border: '1px solid red',
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '50px',
+  padding: '20px 0'
+}
+
 function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <>
-        <h1 className="text-4xl font-bold underline">
-          Hello world!
-        </h1>
+      <Box sx={boxWrapper1}>
         <SliderComponent />
-        <NumberInputComponent />
-      </>
+        <div>
+          <NumberInputComponent />
+        </div>
+
+        {/* <div>
+          <CommonSVGElements />
+        </div> */}
+      </Box>
     </ThemeProvider>
   )
 }

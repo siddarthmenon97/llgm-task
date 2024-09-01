@@ -83,7 +83,7 @@ export const SliderComponent = () => {
 
 const wrapperStyles: SxProps<Theme> = {
     position: 'relative',
-    display: 'inline-block',
+    display: 'inline-flex',
 };
 
 const bottomRightLabelStyles: SxProps<Theme> = {
