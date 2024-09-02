@@ -1,7 +1,8 @@
 import { Box, createTheme, SxProps, Theme, ThemeProvider } from '@mui/material'
 import { NumberInputComponent, SliderComponent } from './components/slider'
 import './App.css'
-// import { CommonSVGElements } from './components/d3-component'
+import { CommonSVGElements } from './components/d3-component'
+import { TimeSeriesChart } from './components/d3-time-series'
 
 const theme = createTheme({
   palette: {
@@ -68,14 +69,22 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={boxWrapper1}>
-        <SliderComponent />
+
         <div>
           <NumberInputComponent />
         </div>
 
-        {/* <div>
+        <div>
+          <SliderComponent />
+        </div>
+
+        <div>
           <CommonSVGElements />
-        </div> */}
+        </div>
+
+        <div>
+          <TimeSeriesChart />
+        </div>
       </Box>
     </ThemeProvider>
   )
