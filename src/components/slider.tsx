@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Box, InputAdornment, Slider, TextField, Typography } from "@mui/material";
-import { SxProps, Theme } from '@mui/material/styles';
+import { Box, InputAdornment, Slider, TextField, TextFieldProps, Typography } from "@mui/material";
+import { styled, SxProps, Theme } from '@mui/material/styles';
+
 
 const MAX = 3;
 const MIN = 0.5;
@@ -23,6 +24,17 @@ const typographyStyleProps: SxProps<Theme> = {
     alignItems: 'center'
 }
 
+const CustomSlider = styled(Slider)({
+    '& .MuiSlider-thumb': {
+        borderRadius: 'unset',
+        height: '36px',
+        opacity: '0.85'
+    },
+    '& .MuiSlider-rail': {
+        height: '1px'
+    }
+})
+
 export const SliderComponent = () => {
     const [value, setVal] = useState<number>(MAX)
 
@@ -34,7 +46,7 @@ export const SliderComponent = () => {
 
     return (
         <Box sx={{ width: 300 }}>
-            <Slider
+            <CustomSlider
                 value={MAX - value + MIN}
                 marks={marks}
                 step={0.5}
@@ -62,8 +74,8 @@ export const SliderComponent = () => {
                 </Typography>
             </Box>
             <Box sx={{ marginTop: '16px' }}>
-                <TextField
-                    label="bp"
+                <NumberInputComponent
+                    secondaryLabel="bp"
                     type="number"
                     value={value}
                     focused
@@ -96,17 +108,24 @@ const bottomRightLabelStyles: SxProps<Theme> = {
     fontSize: '10px'
 };
 
-export const NumberInputComponent = () => {
+type ICustomInputProps = TextFieldProps & {
+    width?: string;
+    secondaryLabel?: string;
+}
+
+export const NumberInputComponent = (props: ICustomInputProps) => {
+    const { label, secondaryLabel, width, ...rest } = props;
+
     return (
-        <Box sx={wrapperStyles}>
+        <Box sx={wrapperStyles} width={width}>
             <TextField
-                label="Default Label"
+                label={label}
                 type="number"
                 variant="outlined"
-                sx={{ width: 300 }}
+                {...rest}
             />
             <Typography sx={bottomRightLabelStyles}>
-                Bottom Right Label
+                {secondaryLabel}
             </Typography>
         </Box>
     );
