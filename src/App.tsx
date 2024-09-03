@@ -54,11 +54,11 @@ const theme = createTheme({
     MuiSlider: {
       styleOverrides: {
         trackInverted: {
-          background: 'linear-gradient(90deg, rgba(244, 244, 244, 0.3) 0%, rgba(77,149,0,0.5019257703081232) 100%);',
+          background: 'linear-gradient(90deg, rgba(244,244,244,0.3) 0%, rgba(194,230,156,0.3) 50%, rgba(77,149,0,0.5) 100%)',
           borderRadius: 'unset',
         },
         track: {
-          background: 'linear-gradient(90deg, rgba(244,244,244,0.3) 0%, rgba(77,149,0,0.5019257703081232) 100%);',
+          background: 'linear-gradient(90deg, rgba(244,244,244,0.3) 0%, rgba(194,230,156,0.3) 50%, rgba(77,149,0,0.5) 100%)',
           borderRadius: 'unset',
         },
         mark: {

@@ -87,7 +87,7 @@ export const SliderComponent = () => {
                             startAdornment: <InputAdornment position="start">+/-</InputAdornment>
                         }
                     }}
-                    onChange={(ev) => setVal(Number(ev.target.value))} />
+                    onChange={(ev) => setVal(Number(ev.target.value))} size="small" />
             </Box>
         </Box>
     )
@@ -100,7 +100,7 @@ const wrapperStyles: SxProps<Theme> = {
 
 const bottomRightLabelStyles: SxProps<Theme> = {
     position: 'absolute',
-    top: '46px',
+    bottom: '-6px',
     right: '10px',
     color: '#4d9500',
     background: '#242424',
